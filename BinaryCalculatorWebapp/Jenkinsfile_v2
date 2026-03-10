@@ -47,7 +47,6 @@ pipeline {
                 container('gcloud') {   // within the gcloud container
                     dir('BinaryCalculatorWebapp'){
                         // set the credential for gcloud within the container
-                        sh 'gcloud auth activate-service-account --key-file $SERVICE_ACCOUNT'
                         sh 'gcloud config set project $PROJECT'
                         sh 'gcloud builds submit -t $IMAGE_TAG --suppress-logs'
                     }
